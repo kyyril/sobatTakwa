@@ -16,7 +16,7 @@ export function ModeToggle() {
   return (
     <Button
       className="rounded-full"
-      variant={"ghost"}
+      variant={"default"}
       size="icon"
       onClick={toggleTheme}
     >
