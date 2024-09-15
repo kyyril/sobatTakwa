@@ -2,13 +2,34 @@
 import { useEffect, useState } from "react";
 import Loading from "../components/Loading";
 
+interface Timings {
+  Fajr: string;
+  Sunrise: string;
+  Dhuhr: string;
+  Asr: string;
+  Sunset: string;
+  Maghrib: string;
+  Isha: string;
+  [key: string]: string;
+}
+
+interface DateInfo {
+  readable: string;
+  gregorian: {
+    weekday: {
+      en: string;
+    };
+  };
+}
+
 interface PrayerTimesData {
-  data: any;
+  timings: Timings;
+  date: DateInfo;
 }
 
 const Home = () => {
   const [input, setInput] = useState("");
-  const [term, setTerm] = useState("jakarta");
+  const [term, setTerm] = useState("Padang");
   const [data, setData] = useState<PrayerTimesData | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
   const prayerTimes = ["Fajr", "Dhuhr", "Asr", "Maghrib", "Isha"];
@@ -17,8 +38,8 @@ const Home = () => {
     setLoading(true);
     fetch(`https://api.aladhan.com/v1/timingsByAddress?address=${term}`)
       .then((res) => res.json())
-      .then((res: PrayerTimesData) => {
-        setData(res);
+      .then((res) => {
+        setData(res.data); // Data sudah di dalam res.data
         setLoading(false);
       })
       .catch((err) => {
@@ -36,8 +57,8 @@ const Home = () => {
           <div>
             {data && (
               <>
-                <div>{data.data.date.gregorian.weekday.en}</div>
-                <div>{data.data.date.readable}</div>
+                <div>{data.date.gregorian.weekday.en}</div>
+                <div>{data.date.readable}</div>
               </>
             )}
           </div>
@@ -69,7 +90,7 @@ const Home = () => {
                 className="odd:text-yellow-400 even:text-[#e3e6e3] flex justify-between p-2"
               >
                 <div>{p}</div>
-                <div className="font-bold">{data.data.timings[p]}</div>
+                <div className="font-bold">{data.timings[p]}</div>
               </li>
             ))}
         </ul>
