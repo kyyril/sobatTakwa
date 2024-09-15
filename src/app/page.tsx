@@ -55,13 +55,13 @@ const Home = () => {
             onChange={(e) => setInput(e.target.value)}
             type="text"
             placeholder="search by city"
-            className="w-[250px] py-2 px-4 rounded-full text-[14px] text-slate-400 focus:shadow-lg outline-none"
+            className="w-[250px] py-2 px-4 rounded-full text-[14px] text-slate-500 focus:shadow-lg outline-none"
           />
           <input type="submit" value="" />
         </form>
       </div>
       <div>
-        <ul className="flex flex-col rounded-xl py-2 w-[200px] bg-gray-400 bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-10">
+        <ul className="flex flex-col rounded-xl py-2 w-[200px] bg-gray-500 bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-10">
           {data &&
             prayerTimes.map((p) => (
               <li

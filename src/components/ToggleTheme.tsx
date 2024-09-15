@@ -21,7 +21,7 @@ export function ModeToggle() {
       onClick={toggleTheme}
     >
       <SunIcon
-        className={`h-[1.2rem] w-[1.2rem] transition-transform ${
+        className={`h-[1.2rem] w-[1.2rem] transition-colors duration-1000 ${
           theme === "dark" ? "rotate-0 scale-0" : "rotate-0 scale-100"
         }`}
       />
