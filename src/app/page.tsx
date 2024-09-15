@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import Loading from "../components/Loading";
+import { UrlJadwalSholat } from "@/lib/constans";
 
 const Home = () => {
   const [input, setInput] = useState("");
@@ -11,7 +12,7 @@ const Home = () => {
 
   useEffect(() => {
     setLoading(true);
-    fetch(`https://api.aladhan.com/v1/timingsByAddress?address=${term}`)
+    fetch(`${UrlJadwalSholat}${term}`)
       .then((res) => res.json())
       .then((res) => {
         setData(res.data); // Data sudah di dalam res.data

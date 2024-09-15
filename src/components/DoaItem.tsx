@@ -7,18 +7,36 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 
-export default function DoaItem() {
+// Define props for DoaItem to include typing for each part of the doa
+interface DoaItemProps {
+  id: number;
+  doa: string;
+  ayat: string;
+  latin: string;
+  artinya: string;
+}
+
+export default function DoaItem({
+  id,
+  doa,
+  ayat,
+  latin,
+  artinya,
+}: DoaItemProps) {
   return (
     <Card>
       <CardHeader>
-        <CardTitle>1.Doa tidur</CardTitle>
-        <CardDescription>arabbbb</CardDescription>
+        {/* Display the doa title and ayat */}
+        <CardTitle>{`${id}. ${doa}`}</CardTitle>
+        <CardDescription>{ayat}</CardDescription>
       </CardHeader>
       <CardContent>
-        <p>Latinnnnnnnnnnnnnnnnnnnnnnnnnnnnnn</p>
+        {/* Display the Latin text */}
+        <p>{latin}</p>
       </CardContent>
       <CardFooter>
-        <p>artiiiiiiiiiiiiiiiiiiiiii</p>
+        {/* Display the meaning or translation */}
+        <p>Artinya: {artinya}</p>
       </CardFooter>
     </Card>
   );
