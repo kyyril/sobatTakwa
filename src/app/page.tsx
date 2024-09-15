@@ -1,21 +1,33 @@
 "use client";
 import { useEffect, useState } from "react";
+import Loading from "../components/Loading";
 
 interface PrayerTimesData {
   data: any;
 }
 
-export default function Home() {
+const Home = () => {
   const [input, setInput] = useState("");
   const [term, setTerm] = useState("jakarta");
   const [data, setData] = useState<PrayerTimesData | null>(null);
-  const prayerTime = ["Fajr", "Dhuhr", "Asr", "Maghrib", "Isha"];
+  const [loading, setLoading] = useState<boolean>(true);
+  const prayerTimes = ["Fajr", "Dhuhr", "Asr", "Maghrib", "Isha"];
 
   useEffect(() => {
+    setLoading(true);
     fetch(`https://api.aladhan.com/v1/timingsByAddress?address=${term}`)
       .then((res) => res.json())
-      .then((res: PrayerTimesData) => setData(res));
+      .then((res: PrayerTimesData) => {
+        setData(res);
+        setLoading(false);
+      })
+      .catch((err) => {
+        console.error(err);
+        setLoading(false);
+      });
   }, [term]);
+
+  if (loading) return <Loading />;
 
   return (
     <div className="h-screen flex flex-col bg-[url('./public/assets/bg-masjid1.jpg')] gap-5 text-[#e3e6e3] bg-cover items-center justify-center">
@@ -43,15 +55,15 @@ export default function Home() {
             onChange={(e) => setInput(e.target.value)}
             type="text"
             placeholder="search by city"
-            className="w-[250px] py-2 px-4 rounded-full text-[14px] text-slate-600 focus:shadow-lg outline-none"
-          ></input>
-          <input type="submit" value=""></input>
+            className="w-[250px] py-2 px-4 rounded-full text-[14px] text-slate-400 focus:shadow-lg outline-none"
+          />
+          <input type="submit" value="" />
         </form>
       </div>
       <div>
         <ul className="flex flex-col rounded-xl py-2 w-[200px] bg-gray-400 bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-10">
           {data &&
-            prayerTime.map((p) => (
+            prayerTimes.map((p) => (
               <li
                 key={p}
                 className="odd:text-yellow-400 even:text-[#e3e6e3] flex justify-between p-2"
@@ -64,4 +76,6 @@ export default function Home() {
       </div>
     </div>
   );
-}
+};
+
+export default Home;
