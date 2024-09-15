@@ -18,11 +18,7 @@ async function getDoa(): Promise<Doa[] | null> {
 }
 
 // Main component
-export default async function Doa({
-  searchParams,
-}: {
-  searchParams: { [key: string]: string };
-}) {
+export default async function Doa() {
   // Fetch Doa data with proper type
   const dataDoa: Doa[] | null = await getDoa();
 
@@ -33,7 +29,9 @@ export default async function Doa({
         <h1 className="m-2 text-center font-sans font-extrabold text-4xl">
           Do`a <span className="text-yellow-500">Harian</span>
         </h1>
-        {dataDoa ? <DoaList dataDoa={dataDoa} /> : <p>Failed to load Doa.</p>}
+        <div>
+          {dataDoa ? <DoaList dataDoa={dataDoa} /> : <p>Failed to load Doa.</p>}
+        </div>
       </section>
     </main>
   );

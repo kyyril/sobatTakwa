@@ -8,21 +8,8 @@ import {
 } from "@/components/ui/card";
 
 // Define props for DoaItem to include typing for each part of the doa
-interface DoaItemProps {
-  id: number;
-  doa: string;
-  ayat: string;
-  latin: string;
-  artinya: string;
-}
 
-export default function DoaItem({
-  id,
-  doa,
-  ayat,
-  latin,
-  artinya,
-}: DoaItemProps) {
+export default function DoaItem({ id, doa, ayat, latin, artinya }: Doa) {
   return (
     <Card>
       <CardHeader>
