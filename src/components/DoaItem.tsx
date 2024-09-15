@@ -15,7 +15,7 @@ export default function DoaItem({ id, doa, ayat, latin, artinya }: Doa) {
       <CardHeader>
         {/* Display the doa title and ayat */}
         <CardTitle>{`${id}. ${doa}`}</CardTitle>
-        <CardDescription>{ayat}</CardDescription>
+        <CardDescription className="font-serif">{ayat}</CardDescription>
       </CardHeader>
       <CardContent>
         {/* Display the Latin text */}
