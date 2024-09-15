@@ -2,14 +2,16 @@
 import { useEffect, useState } from "react";
 import Loading from "../components/Loading";
 import { UrlJadwalSholat } from "@/lib/constans";
+import { OptionCities } from "@/lib/utils/optionCities";
+import Select from "react-select"; // Import react-select
 
 const Home = () => {
-  const [input, setInput] = useState("");
   const [term, setTerm] = useState("Padang");
   const [data, setData] = useState<PrayerTimesData | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
   const prayerTimes = ["Fajr", "Dhuhr", "Asr", "Maghrib", "Isha"];
 
+  // Gunakan efek untuk fetch data berdasarkan term
   useEffect(() => {
     setLoading(true);
     fetch(`${UrlJadwalSholat}${term}`)
@@ -25,6 +27,12 @@ const Home = () => {
   }, [term]);
 
   if (loading) return <Loading />;
+
+  // Format option yang diterima oleh react-select
+  const cityOptions = OptionCities.map((city) => ({
+    value: city.label,
+    label: city.label,
+  }));
 
   return (
     <div className="h-screen flex flex-col bg-[url('./public/assets/bg-masjid1.jpg')] gap-5 text-[#e3e6e3] bg-cover items-center justify-center">
@@ -43,18 +51,18 @@ const Home = () => {
         <form
           onSubmit={(e) => {
             e.preventDefault();
-            setTerm(input);
-            setInput("");
           }}
         >
-          <input
-            value={input}
-            onChange={(e) => setInput(e.target.value)}
-            type="text"
-            placeholder="search by city"
-            className="w-[250px] py-2 px-4 rounded-full text-[14px] text-slate-500 focus:shadow-lg outline-none"
+          {/* Menggunakan react-select untuk dropdown */}
+          <Select
+            className="w-[200px] py-2 px-4 rounded-full text-[14px] text-slate-500 focus:shadow-lg outline-none"
+            options={cityOptions} // Masukkan daftar kota
+            value={cityOptions.find((city) => city.value === term)} // Nilai yang terpilih
+            onChange={(selectedOption) =>
+              setTerm(selectedOption?.value || "Padang")
+            } // Mengubah nilai saat opsi dipilih
+            placeholder="Select city" // Placeholder saat belum ada yang dipilih
           />
-          <input type="submit" value="" />
         </form>
       </div>
       <div>
