@@ -9,7 +9,7 @@ import {
 
 // Define props for DoaItem to include typing for each part of the doa
 
-export default function QuranItem() {
+export default function SurahItem() {
   return (
     <Card>
       <CardHeader>

@@ -1,7 +1,24 @@
-import QuranItem from "@/components/QuranItem";
-import QuranList from "@/components/QuranList";
+import SurahList from "@/components/SurahList";
 
-export default function Quran() {
+import { UrlSurah } from "@/lib/constans";
+
+async function getSurah(): Promise<SurahList[] | null> {
+  const url = new URL(`${UrlSurah}`);
+  try {
+    const response = await fetch(url.toString());
+    if (!response.ok) {
+      throw new Error(`Failed to fetch Surah: ${response.statusText}`);
+    }
+    return await response.json();
+  } catch (error) {
+    console.error("Error fetching Surah:", error);
+    return null;
+  }
+}
+
+export default async function Surah() {
+  const dataSurah: SurahList[] | null = await getSurah();
+  console.log(dataSurah);
   return (
     <main className="w-full flex justify-center items-start min-h-screen mt-5">
       <section className="w-full max-w-3xl flex justify-center items-center flex-col">
@@ -9,7 +26,7 @@ export default function Quran() {
           Baca <span className="text-yellow-500">Al-Qur`an</span>
         </h1>
         <div>
-          <QuranList />
+          <SurahList />
         </div>
       </section>
     </main>
