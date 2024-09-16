@@ -2,7 +2,7 @@ import SurahList from "@/components/SurahList";
 
 import { UrlSurah } from "@/lib/constans";
 
-async function getSurah(): Promise<SurahList[] | null> {
+async function getSurah(): Promise<typeSurahList[] | null> {
   const url = new URL(`${UrlSurah}`);
   try {
     const response = await fetch(url.toString());
@@ -17,8 +17,7 @@ async function getSurah(): Promise<SurahList[] | null> {
 }
 
 export default async function Surah() {
-  const dataSurah: SurahList[] | null = await getSurah();
-  console.log(dataSurah);
+  const dataSurah: typeSurahList[] | null = await getSurah();
   return (
     <main className="w-full flex justify-center items-start min-h-screen mt-5">
       <section className="w-full max-w-3xl flex justify-center items-center flex-col">
@@ -26,7 +25,11 @@ export default async function Surah() {
           Baca <span className="text-yellow-500">Al-Qur`an</span>
         </h1>
         <div>
-          <SurahList />
+          {dataSurah ? (
+            <SurahList dataSurah={dataSurah} />
+          ) : (
+            <p>Failed to load Doa.</p>
+          )}
         </div>
       </section>
     </main>

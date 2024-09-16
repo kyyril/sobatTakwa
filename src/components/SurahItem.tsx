@@ -7,23 +7,29 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 
-// Define props for DoaItem to include typing for each part of the doa
-
-export default function SurahItem() {
+export default function SurahItem({
+  number,
+  name,
+  translation,
+  numberOfAyahs,
+  revelation,
+}: typeSurahList) {
   return (
     <Card>
-      <CardHeader>
-        {/* Display the doa title and ayat */}
-        <CardTitle>judul</CardTitle>
-        <CardDescription>arabbbbbbb</CardDescription>
+      <div className="flex text-sm font-mono justify-start items-start left-0 top-0 bg-yellow-500 dark:bg-secondary w-auto px-2 rounded-t-md">
+        {number}.
+      </div>
+      <CardHeader className="py-0">
+        <CardTitle className="flex justify-end py-1">{revelation}</CardTitle>
+        <CardDescription className="flex mt-0 justify-start font-bold p-0">
+          {name}
+        </CardDescription>
       </CardHeader>
-      <CardContent>
-        {/* Display the Latin text */}
-        <p>latinnn</p>
+      <CardContent className="py-0">
+        <p>{translation}</p>
       </CardContent>
-      <CardFooter>
-        {/* Display the meaning or translation */}
-        <p>Artinya</p>
+      <CardFooter className="py-1 flex justify-end">
+        <p>{numberOfAyahs} ayat</p>
       </CardFooter>
     </Card>
   );
