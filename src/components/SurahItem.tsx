@@ -16,11 +16,13 @@ export default function SurahItem({
 }: typeSurahList) {
   return (
     <Card>
-      <div className="flex text-sm font-mono justify-start items-start left-0 top-0 bg-yellow-500 dark:bg-secondary w-auto px-2 rounded-t-md">
+      <div className="flex text-sm justify-start items-start left-0 top-0 bg-yellow-500 dark:bg-secondary w-auto px-2 rounded-t-md">
         {number}.
       </div>
-      <CardHeader className="py-0">
-        <CardTitle className="flex justify-end py-1">{revelation}</CardTitle>
+      <CardHeader className="py-0 font-serif">
+        <CardTitle className="flex justify-end text-sm py-1">
+          {revelation}
+        </CardTitle>
         <CardDescription className="flex mt-0 justify-start font-bold p-0">
           {name}
         </CardDescription>
@@ -28,7 +30,7 @@ export default function SurahItem({
       <CardContent className="py-0">
         <p>{translation}</p>
       </CardContent>
-      <CardFooter className="py-1 flex justify-end">
+      <CardFooter className="py-1 flex justify-end font-serif">
         <p>{numberOfAyahs} ayat</p>
       </CardFooter>
     </Card>
