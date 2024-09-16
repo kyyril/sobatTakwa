@@ -17,17 +17,21 @@ export function ModeToggle() {
     <Button
       className="rounded-full"
       variant={"default"}
-      size="icon"
+      size="default"
       onClick={toggleTheme}
     >
       <SunIcon
         className={`h-[1.2rem] w-[1.2rem] transition-colors duration-1000 ${
-          theme === "dark" ? "rotate-0 scale-0" : "rotate-0 scale-100"
+          theme === "dark"
+            ? "rotate-0 scale-0"
+            : "rotate-0 scale-100 animate-bounce"
         }`}
       />
       <MoonIcon
         className={`absolute h-[1.2rem] w-[1.2rem] transition-transform ${
-          theme === "light" ? "rotate-90 scale-0" : "rotate-0 scale-100"
+          theme === "light"
+            ? "rotate-90 scale-0"
+            : "rotate-0 scale-100 animate-bounce"
         }`}
       />
     </Button>
