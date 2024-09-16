@@ -5,4 +5,5 @@ interface typeSurahList {
   translation: string;
   revelation: string;
   description: string;
+  query: string;
 }

@@ -13,7 +13,7 @@ export default async function Surah() {
           {dataSurah ? (
             <SurahList dataSurah={dataSurah} />
           ) : (
-            <p>Failed to load Doa.</p>
+            <p>Failed to load</p>
           )}
         </div>
       </section>

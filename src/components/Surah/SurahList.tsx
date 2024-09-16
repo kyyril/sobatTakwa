@@ -27,6 +27,7 @@ export default function SurahList({ dataSurah }: SurahListProps) {
               <div key={surah.number}>
                 {/* Pass the relevant data to surahItem */}
                 <SurahItem
+                  query={query}
                   number={surah.number}
                   name={surah.name}
                   translation={surah.translation}

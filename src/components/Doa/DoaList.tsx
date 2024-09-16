@@ -31,6 +31,7 @@ export default function DoaList({ dataDoa }: DoaListProps) {
                 ayat={doa.ayat}
                 latin={doa.latin}
                 artinya={doa.artinya}
+                query={query}
               />
             </div>
           )

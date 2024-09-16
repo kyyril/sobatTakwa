@@ -4,4 +4,5 @@ interface Doa {
   ayat: string;
   latin: string;
   artinya: string;
+  query: string;
 }
