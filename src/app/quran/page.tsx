@@ -1,20 +1,5 @@
-import SurahList from "@/components/SurahList";
-
-import { UrlSurah } from "@/lib/constans";
-
-async function getSurah(): Promise<typeSurahList[] | null> {
-  const url = new URL(`${UrlSurah}`);
-  try {
-    const response = await fetch(url.toString());
-    if (!response.ok) {
-      throw new Error(`Failed to fetch Surah: ${response.statusText}`);
-    }
-    return await response.json();
-  } catch (error) {
-    console.error("Error fetching Surah:", error);
-    return null;
-  }
-}
+import SurahList from "@/components/Surah/SurahList";
+import { getSurah } from "@/lib/utils/fetcher";
 
 export default async function Surah() {
   const dataSurah: typeSurahList[] | null = await getSurah();

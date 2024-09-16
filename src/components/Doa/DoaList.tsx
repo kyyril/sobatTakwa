@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
-import DoaItem from "./DoaItem";
-import { Input } from "./ui/input";
+import DoaItem from "../Doa/DoaItem";
+import { Input } from "../ui/input";
 // Define props for DoaList to include typing for dataDoa
 interface DoaListProps {
   dataDoa: Doa[];

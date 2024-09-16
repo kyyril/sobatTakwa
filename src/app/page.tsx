@@ -1,8 +1,8 @@
 "use client";
 import { useEffect, useState } from "react";
 import Loading from "../components/Loading";
-import { UrlJadwalSholat } from "@/lib/constans";
-import { OptionCities } from "@/lib/utils/optionCities";
+import { UrlJadwalSholat } from "@/lib/utils/fetcher";
+import { OptionCities } from "@/lib/optionCities";
 import Select from "react-select"; // Import react-select
 
 const Home = () => {

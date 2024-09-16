@@ -1,22 +1,5 @@
-// Import DoaList and URL constants
-import DoaList from "@/components/DoaList";
-import { UrlDoa } from "@/lib/constans";
-
-// Fetch the Doa data with proper typing
-async function getDoa(): Promise<Doa[] | null> {
-  const url = new URL(`${UrlDoa}`);
-  try {
-    const response = await fetch(url.toString());
-    if (!response.ok) {
-      throw new Error(`Failed to fetch Doa: ${response.statusText}`);
-    }
-    return await response.json();
-  } catch (error) {
-    console.error("Error fetching Doa:", error);
-    return null;
-  }
-}
-
+import DoaList from "@/components/Doa/DoaList";
+import { getDoa } from "@/lib/utils/fetcher";
 // Main component
 export default async function Doa() {
   // Fetch Doa data with proper type

@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { Input } from "./ui/input";
+import { Input } from "../ui/input";
 import SurahItem from "./SurahItem";
 
 interface SurahListProps {
