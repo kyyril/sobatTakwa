@@ -19,11 +19,11 @@ export default function SurahItem({
       <div className="flex text-sm justify-start items-start left-0 top-0 bg-yellow-500 dark:bg-secondary w-auto px-2 rounded-t-md">
         {number}.
       </div>
-      <CardHeader className="py-0 font-serif">
-        <CardTitle className="flex justify-end text-sm py-1">
+      <CardHeader className="py-0">
+        <CardTitle className="flex font-sans justify-end text-sm py-1">
           {revelation}
         </CardTitle>
-        <CardDescription className="flex mt-0 justify-start font-bold p-0">
+        <CardDescription className="flex font-serif mt-0 justify-start font-bold p-0">
           {name}
         </CardDescription>
       </CardHeader>
