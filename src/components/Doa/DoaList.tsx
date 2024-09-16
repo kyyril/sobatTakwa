@@ -13,7 +13,7 @@ export default function DoaList({ dataDoa }: DoaListProps) {
     <div className="w-full flex flex-col gap-2 mt-4">
       <div className="flex justify-center mx-10">
         <Input
-          onChange={(e) => setQuery(e.target.value)}
+          onChange={(e) => setQuery(e.target.value.toLowerCase())}
           placeholder="Cari Do`a.."
         />
       </div>
