@@ -16,7 +16,7 @@ export default function DoaItem({ id, doa, ayat, latin, artinya, query }: Doa) {
     const parts = text.split(regex); // Pisahkan teks berdasarkan query
     return parts.map((part, index) =>
       regex.test(part) ? (
-        <span key={index} className="bg-yellow-500 rounded-l-md rounded-t-md">
+        <span key={index} className="bg-yellow-400 rounded-l-md rounded-t-md">
           {part}
         </span>
       ) : (
