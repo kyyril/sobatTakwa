@@ -21,7 +21,7 @@ export default function SurahItem({
     const parts = text.split(regex); // Pisahkan teks berdasarkan query
     return parts.map((part, index) =>
       regex.test(part) ? (
-        <span key={index} className="bg-yellow-500">
+        <span key={index} className="bg-yellow-500 rounded-l-md rounded-t-md">
           {part}
         </span>
       ) : (
@@ -31,9 +31,12 @@ export default function SurahItem({
   };
   return (
     <Card>
-      <div className="flex text-sm justify-start items-start left-0 top-0 bg-yellow-500 dark:bg-secondary w-auto px-2 rounded-t-md">
-        {number}.
+      <div className="flex text-sm justify-start items-start left-0 top-0 w-auto">
+        <span className="bg-yellow-500 dark:bg-secondary px-2 rounded-t-md rounded-r-md">
+          {number}.
+        </span>
       </div>
+
       <CardHeader className="py-0">
         <CardTitle className="flex font-sans justify-end text-sm py-1">
           {revelation}
