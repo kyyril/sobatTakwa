@@ -16,8 +16,8 @@ export function ModeToggle() {
   return (
     <Button
       className="rounded-full"
-      variant={"default"}
-      size="default"
+      variant={"ghost"}
+      size="icon"
       onClick={toggleTheme}
     >
       <SunIcon
