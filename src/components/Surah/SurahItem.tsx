@@ -47,7 +47,7 @@ export default function SurahItem({
         <CardContent className="py-0 font-serif mx-3 text-yellow-400">
           <p>{translation}</p>
         </CardContent>
-        <CardFooter className="py-1 flex justify-between text-muted-foreground">
+        <CardFooter className="py-1 flex justify-between text-muted-foreground text-sm">
           <p className="mx-3">{numberOfAyahs} ayat</p>
           <p>{revelation}</p>
         </CardFooter>
