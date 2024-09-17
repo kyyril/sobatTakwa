@@ -10,8 +10,8 @@ interface SurahListProps {
 export default function SurahList({ dataSurah }: SurahListProps) {
   const [query, setQuery] = useState("");
   return (
-    <div className="flex flex-col gap-2 mt-4">
-      <div className="flex justify-center mx-20">
+    <div className="w full flex flex-col gap-2 mt-4">
+      <div className="flex justify-center mx-10">
         <Input
           onChange={(e) => setQuery(e.target.value.toLowerCase())}
           placeholder="Cari Surah"
