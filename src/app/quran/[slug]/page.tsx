@@ -1,5 +1,7 @@
+import DetailSurahList from "@/components/Surah/DetailSurahList";
 import { UrlSurah } from "@/lib/utils/fetcher";
-async function fetchDetail(slug: string) {
+
+async function fetchDetail(slug: string): Promise<Surah | null> {
   try {
     const response = await fetch(`${UrlSurah}/${slug}`, {
       cache: "no-store",
@@ -18,19 +20,17 @@ export default async function detailSurah({
 }: {
   params: { slug: string };
 }) {
-  const detailSurah = await fetchDetail(params.slug);
+  const detailSurah: Surah | null = await fetchDetail(params.slug);
   if (!detailSurah) {
     return <p>Error loading details. Please try again later.</p>;
   }
   return (
-    <div className="w-full flex justify-center items-start min-h-screen mt-10">
-      <div key={detailSurah.number}>
-        <h1 className="m-2 text-center font-sans font-extrabold text-4xl">
-          {detailSurah.name}
-        </h1>
-      </div>
-
-      <div></div>
+    <div>
+      {detailSurah ? (
+        <DetailSurahList detailSurah={detailSurah} />
+      ) : (
+        <p>Failed to load Doa.</p>
+      )}
     </div>
   );
 }
