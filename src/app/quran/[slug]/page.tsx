@@ -23,10 +23,10 @@ export default async function detailSurah({
     return <p>Error loading details. Please try again later.</p>;
   }
   return (
-    <div className="w-full flex justify-center items-start min-h-screen mt-16">
+    <div className="w-full flex justify-center items-start min-h-screen mt-10">
       <div key={detailSurah.number}>
         <h1 className="m-2 text-center font-sans font-extrabold text-4xl">
-          {detailSurah.number}. {detailSurah.name}
+          {detailSurah.name}
         </h1>
       </div>
 

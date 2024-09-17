@@ -32,25 +32,24 @@ export default function SurahItem({
   };
   return (
     <Link href={`/quran/${number}`}>
-      <Card>
-        <div className="flex text-sm justify-start items-start left-0 top-0 w-auto">
-          <span className="bg-yellow-400 dark:bg-secondary px-2 rounded-t-md rounded-r-md">
-            {number}.
+      <Card className="m-1">
+        <div className="flex text-sm justify-between ">
+          <span className="flex items-start left-0 top-0 w-auto justify-start bg-yellow-400 px-2 rounded-t-md rounded-r-md">
+            {number}
           </span>
+          <span className="flex justify-end mx-3">taf</span>
         </div>
         <CardHeader className="py-0">
-          <CardTitle className="flex font-sans justify-end text-sm py-1">
-            {revelation}
-          </CardTitle>
-          <CardDescription className="flex font-serif mt-0 justify-start font-bold p-0">
+          <CardDescription className="flex px-3 font-serif justify-start font-bold text-3xl text-primary">
             {highlightQuery(name, query)}
           </CardDescription>
         </CardHeader>
-        <CardContent className="py-0">
+        <CardContent className="py-0 font-serif mx-3 text-yellow-400">
           <p>{translation}</p>
         </CardContent>
-        <CardFooter className="py-1 flex justify-end font-serif">
-          <p>{numberOfAyahs} ayat</p>
+        <CardFooter className="py-1 flex justify-between text-muted-foreground">
+          <p className="mx-3">{numberOfAyahs} ayat</p>
+          <p>{revelation}</p>
         </CardFooter>
       </Card>
     </Link>
