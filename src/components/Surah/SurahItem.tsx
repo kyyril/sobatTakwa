@@ -4,9 +4,20 @@ import {
   CardDescription,
   CardFooter,
   CardHeader,
-  CardTitle,
 } from "@/components/ui/card";
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from "@/components/ui/alert-dialog";
+
 import Link from "next/link";
+import { Info } from "lucide-react";
 
 export default function SurahItem({
   query,
@@ -15,6 +26,7 @@ export default function SurahItem({
   translation,
   numberOfAyahs,
   revelation,
+  description,
 }: typeSurahList) {
   const highlightQuery = (text: string, query: string) => {
     if (!query) return text; // Jika query kosong, kembalikan teks asli
@@ -31,27 +43,47 @@ export default function SurahItem({
     );
   };
   return (
-    <Link href={`/quran/${number}`}>
-      <Card className="m-1 transition transform hover:bg-secondary active:bg-primary hover:scale-95 hover:secondary duration-300 ease-in-out">
-        <div className="flex text-sm justify-between ">
-          <span className="flex items-start left-0 top-0 w-auto justify-start bg-yellow-400 px-2 rounded-t-md rounded-r-md">
-            {number}
-          </span>
-          <span className="flex justify-end mx-3">taf</span>
-        </div>
-        <CardHeader className="py-0">
+    <Card className="m-1 transition transform hover:bg-secondary active:bg-primary-foreground hover:scale-95 hover:secondary duration-200 ease-in-out">
+      <div className="flex text-sm justify-between ">
+        <span className="flex items-start left-0 top-0 w-auto  justify-start bg-yellow-400 px-2 rounded-t-md rounded-r-md">
+          {number}
+        </span>
+        <span className="flex justify-end mx-3">
+          <AlertDialog>
+            <AlertDialogTrigger className="mt-2 rounded-full hover:scale-125 transition transform duration-200 ease-in-out hover:bg-yellow-400">
+              {<Info />}
+            </AlertDialogTrigger>
+            <AlertDialogContent>
+              <AlertDialogHeader>
+                <AlertDialogTitle className="text-3xl text-yellow-400 font-bold font-serif">
+                  {name}
+                </AlertDialogTitle>
+                <AlertDialogTitle className="font-light">
+                  {translation}
+                </AlertDialogTitle>
+                <AlertDialogDescription>{description}</AlertDialogDescription>
+              </AlertDialogHeader>
+              <AlertDialogFooter>
+                <AlertDialogAction>Close</AlertDialogAction>
+              </AlertDialogFooter>
+            </AlertDialogContent>
+          </AlertDialog>
+        </span>
+      </div>
+      <Link href={`/quran/${number}`}>
+        <CardHeader className="py-0 hover:underline">
           <CardDescription className="flex px-3 font-serif justify-start font-bold text-3xl text-primary">
             {highlightQuery(name, query)}
           </CardDescription>
         </CardHeader>
-        <CardContent className="py-0 font-serif mx-3 text-yellow-400">
+        <CardContent className="py-0 font-serif mx-3 text-yellow-400 hover:underline">
           <p>{translation}</p>
         </CardContent>
-        <CardFooter className="py-1 flex justify-between text-muted-foreground text-sm">
-          <p className="mx-3">{numberOfAyahs} ayat</p>
-          <p>{revelation}</p>
-        </CardFooter>
-      </Card>
-    </Link>
+      </Link>
+      <CardFooter className="py-1 flex justify-between text-muted-foreground text-sm">
+        <p className="mx-3">{numberOfAyahs} ayat</p>
+        <p>{revelation}</p>
+      </CardFooter>
+    </Card>
   );
 }
