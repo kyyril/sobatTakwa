@@ -30,14 +30,12 @@ export default function DoaItem({ id, doa, ayat, latin, artinya, query }: Doa) {
         <CardTitle>
           {id}. {highlightQuery(doa, query)}
         </CardTitle>
-        <CardDescription className="flex text-primary font-serif text-4xl justify-end ">
+        <CardDescription className="flex text-primary font-serif text-3xl justify-end ">
           {ayat}
         </CardDescription>
       </CardHeader>
-      <CardContent className="text-yellow-400">{latin}</CardContent>
-      <CardFooter className="text-sm text-muted-foreground">
-        Artinya: {artinya}
-      </CardFooter>
+      <CardContent className="text-yellow-400 text-sm">{latin}</CardContent>
+      <CardFooter className="text-sm font-sans italic">{artinya}</CardFooter>
     </Card>
   );
 }

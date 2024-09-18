@@ -29,7 +29,7 @@ export default async function detailSurah({
       {detailSurah ? (
         <DetailSurahList detailSurah={detailSurah} />
       ) : (
-        <p>Failed to load Doa.</p>
+        <p>Failed to load..</p>
       )}
     </div>
   );

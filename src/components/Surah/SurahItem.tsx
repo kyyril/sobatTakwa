@@ -53,14 +53,14 @@ export default function SurahItem({
             <AlertDialogTrigger className="mt-2 rounded-full hover:scale-125 transition transform duration-200 ease-in-out hover:bg-yellow-400">
               {<Info />}
             </AlertDialogTrigger>
-            <AlertDialogContent>
+            <AlertDialogContent className="rounded-sm">
               <AlertDialogHeader>
                 <AlertDialogTitle className="text-3xl text-yellow-400 font-bold font-serif">
                   {name}
                 </AlertDialogTitle>
-                <AlertDialogTitle className="font-light">
+                <span className=" font-bold pb-2 text-secondary-foreground text-base underline">
                   {translation}
-                </AlertDialogTitle>
+                </span>
                 <AlertDialogDescription>{description}</AlertDialogDescription>
               </AlertDialogHeader>
               <AlertDialogFooter>
