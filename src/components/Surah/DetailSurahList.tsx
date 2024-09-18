@@ -1,10 +1,25 @@
-import React from "react";
+"use client";
+import React, { useRef, useState } from "react";
 
 interface DetailSurahProps {
   detailSurah: Surah;
 }
 
 export default function DetailSurahList({ detailSurah }: DetailSurahProps) {
+  const [currentAyah, setCurrentAyah] = useState(0);
+  const audioRefs = useRef<HTMLAudioElement[]>([]); // Array of audio elements
+
+  // Function to handle when the current audio ends
+  const handleAudioEnd = (index: number) => {
+    if (index < detailSurah.ayahs.length - 1) {
+      setCurrentAyah(index + 1); // Move to the next ayah
+      document
+        .getElementById(`ayah-${index + 1}`)
+        ?.scrollIntoView({ behavior: "smooth", block: "center" });
+      audioRefs.current[index + 1].play(); // Play the next audio
+    }
+  };
+
   return (
     <div className="w-full flex flex-col gap-2 mt-4">
       <div className="flex flex-col justify-center m-2 mx-6">
@@ -15,12 +30,13 @@ export default function DetailSurahList({ detailSurah }: DetailSurahProps) {
           <h1 className="font-semibold">{detailSurah.translation}</h1>
           <h2 className="flex justify-end w-full">
             <span className="bg-yellow-400 font-serif bg-opacity-10 w-auto rounded-full">
-              juz {detailSurah.ayahs[1].meta.juz}
+              Juz {detailSurah.ayahs[1].meta.juz}
             </span>
           </h2>
         </div>
-        {detailSurah.ayahs.map((ayah) => (
-          <div key={ayah.number.inQuran}>
+
+        {detailSurah.ayahs.map((ayah, index) => (
+          <div key={ayah.number.inQuran} id={`ayah-${index}`}>
             <div className="p-2 border-none ">
               <h2 className="flex font-bold text-sm sticky top-0 z-20">
                 <span className="bg-yellow-400 bg-opacity-80 font-serif flex justify-start w-fit rounded-full left-0 top-0 ">
@@ -29,8 +45,10 @@ export default function DetailSurahList({ detailSurah }: DetailSurahProps) {
               </h2>
               <p className="text-right text-4xl font-serif mb-2">{ayah.arab}</p>
               <audio
+                ref={(el) => (audioRefs.current[index] = el!)} // Store each audio element in refs
                 className="w-full h-4 my-2 opacity-70 rounded-lg border-none"
                 controls
+                onEnded={() => handleAudioEnd(index)} // Auto-scroll to the next Ayah when current one ends
               >
                 <source src={ayah.audio.alafasy} type="audio/mpeg" />
                 Browser kamu tidak support untuk mpeg

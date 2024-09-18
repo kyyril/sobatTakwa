@@ -10,7 +10,7 @@ const ErrorPage = () => {
   useEffect(() => {
     // Redirect to home page after 3 seconds
     const timer = setTimeout(() => {
-      router.push("/");
+      router.push("/doa");
     }, 3000);
 
     // Clear timer if component is unmounted

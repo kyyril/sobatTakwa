@@ -53,7 +53,6 @@ const Home = () => {
             e.preventDefault();
           }}
         >
-          {/* Menggunakan react-select untuk dropdown */}
           <Select
             className="w-[200px] py-2 px-4 rounded-full text-[14px] text-slate-500 focus:shadow-lg outline-none"
             options={cityOptions} // Masukkan daftar kota
