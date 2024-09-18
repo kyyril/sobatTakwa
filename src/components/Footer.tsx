@@ -3,7 +3,7 @@ import React from "react";
 
 const Footer: React.FC = () => {
   return (
-    <footer className="right-0 left-0 bottom-0 text-center py-24">
+    <footer className="right-0 font-light left-0 bottom-0 text-center py-24">
       <span>
         Dibangun oleh{" "}
         <a
