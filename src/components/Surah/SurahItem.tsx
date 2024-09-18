@@ -32,7 +32,7 @@ export default function SurahItem({
   };
   return (
     <Link href={`/quran/${number}`}>
-      <Card className="m-1">
+      <Card className="m-1 transition transform hover:bg-secondary active:bg-primary hover:scale-95 hover:secondary duration-300 ease-in-out">
         <div className="flex text-sm justify-between ">
           <span className="flex items-start left-0 top-0 w-auto justify-start bg-yellow-400 px-2 rounded-t-md rounded-r-md">
             {number}

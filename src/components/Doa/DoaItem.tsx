@@ -25,8 +25,8 @@ export default function DoaItem({ id, doa, ayat, latin, artinya, query }: Doa) {
     );
   };
   return (
-    <Card>
-      <CardHeader className="font-serif">
+    <Card className="mx-2">
+      <CardHeader>
         <CardTitle>
           {id}. {highlightQuery(doa, query)}
         </CardTitle>
