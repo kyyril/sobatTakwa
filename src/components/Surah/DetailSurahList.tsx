@@ -7,7 +7,7 @@ interface DetailSurahProps {
 
 export default function DetailSurahList({ detailSurah }: DetailSurahProps) {
   const [currentAyah, setCurrentAyah] = useState(0);
-  const audioRefs = useRef<HTMLAudioElement[]>([]); // Array of audio elements
+  const audioRefs = useRef<HTMLAudioElement[]>([]); // Array of HTMLAudioElement, initialized as empty
 
   // Function to handle when the current audio ends
   const handleAudioEnd = (index: number) => {
@@ -16,7 +16,7 @@ export default function DetailSurahList({ detailSurah }: DetailSurahProps) {
       document
         .getElementById(`ayah-${index + 1}`)
         ?.scrollIntoView({ behavior: "smooth", block: "center" });
-      audioRefs.current[index + 1].play(); // Play the next audio
+      audioRefs.current[index + 1]?.play(); // Play the next audio if it exists
     }
   };
 
@@ -30,9 +30,12 @@ export default function DetailSurahList({ detailSurah }: DetailSurahProps) {
           <h1 className="font-semibold">{detailSurah.translation}</h1>
           <h2 className="flex justify-end w-full">
             <span className="bg-yellow-400 font-serif bg-opacity-10 w-auto rounded-full">
-              Juz {detailSurah.ayahs[1].meta.juz}
+              Juz {detailSurah.ayahs[0].meta.juz}
             </span>
           </h2>
+          <h1 className="flex justify-center text-3xl font-serif mt-4">
+            {detailSurah.bismillah.arab}
+          </h1>
         </div>
 
         {detailSurah.ayahs.map((ayah, index) => (
@@ -45,7 +48,11 @@ export default function DetailSurahList({ detailSurah }: DetailSurahProps) {
               </h2>
               <p className="text-right text-4xl font-serif mb-2">{ayah.arab}</p>
               <audio
-                ref={(el) => (audioRefs.current[index] = el!)} // Store each audio element in refs
+                ref={(el) => {
+                  if (el) {
+                    audioRefs.current[index] = el; // Store each audio element in refs
+                  }
+                }}
                 className="w-full h-4 my-2 opacity-70 rounded-lg border-none"
                 controls
                 onEnded={() => handleAudioEnd(index)} // Auto-scroll to the next Ayah when current one ends
