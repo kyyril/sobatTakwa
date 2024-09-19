@@ -19,6 +19,3 @@ An Islamic app built using **Next.js** and **Shadcn UI**, offering essential rel
 ## Tech Stack
 - **Next.js**: Framework for server-rendered React applications.
 - **Shadcn UI**: For building elegant user interfaces.
-
-## License
-This project is open-sourced under the MIT License.
