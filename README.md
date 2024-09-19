@@ -1,21 +1,21 @@
-# sobatTakwa
+# SobatTakwa
 
-An Islamic app built using **Next.js** and **Shadcn UI**, offering essential religious features such as prayer schedules, Quran reading, and daily prayers.
+Aplikasi Islami yang dibangun menggunakan **Next.js** dan **Shadcn UI**, menawarkan fitur religius penting seperti jadwal sholat, pembacaan Al-Quran, dan doa harian.
 
-## Features
+## Fitur
 
-### 1. **Prayer Schedule**
-   - Search and select city to view prayer schedules.
-   - Provides accurate prayer times based on the selected location.
+### 1. **Jadwal Sholat**
+   - Cari dan pilih kota untuk melihat jadwal sholat.
+   - Menyediakan waktu sholat yang akurat berdasarkan lokasi yang dipilih.
 
-### 2. **Read Al-Quran**
-   - Search by character to find specific verses.
-   - Listen to the audio of each verse for a better recitation experience.
+### 2. **Baca Al-Quran**
+   - Cari ayat berdasarkan karakter.
+   - Dengarkan audio setiap ayat untuk pengalaman tilawah yang lebih baik.
 
-### 3. **Daily Prayers (Doa Harian)**
-   - Browse a list of daily prayers.
-   - Search prayers by name for quick access.
+### 3. **Doa Harian**
+   - Jelajahi daftar doa harian.
+   - Cari doa berdasarkan nama untuk akses cepat.
 
-## Tech Stack
-- **Next.js**: Framework for server-rendered React applications.
-- **Shadcn UI + TailwindCSS**: For building elegant user interfaces.
+## Teknologi yang Digunakan
+- **Next.js**: Framework untuk aplikasi React dengan render di server.
+- **Shadcn UI + TailwindCSS**: Untuk membangun antarmuka pengguna yang elegan.
