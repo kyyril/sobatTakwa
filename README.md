@@ -18,4 +18,4 @@ An Islamic app built using **Next.js** and **Shadcn UI**, offering essential rel
 
 ## Tech Stack
 - **Next.js**: Framework for server-rendered React applications.
-- **Shadcn UI**: For building elegant user interfaces.
+- **Shadcn UI + TailwindCSS**: For building elegant user interfaces.
