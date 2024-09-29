@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import { Button } from "./ui/button";
-import { ChevronUp } from "lucide-react";
+import { ArrowUpIcon } from "@radix-ui/react-icons";
 
 const BackToTopButton = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -36,7 +36,7 @@ const BackToTopButton = () => {
           variant="outline"
           className="backdrop-blur-sm rounded-xl py-6 mb-10 px-4 shadow-lg size-lg"
         >
-          <ChevronUp />
+          <ArrowUpIcon />
         </Button>
       )}
     </div>
