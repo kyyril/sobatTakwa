@@ -42,7 +42,7 @@ export default function DetailSurahList({ detailSurah }: DetailSurahProps) {
           <div key={ayah.number.inQuran} id={`ayah-${index}`}>
             <div className="p-2 border-none ">
               <h2 className="flex font-bold text-sm sticky top-0 z-20">
-                <span className="bg-yellow-400 bg-opacity-80 font-serif flex justify-start w-fit rounded-full left-0 top-0 ">
+                <span className="bg-yellow-400 px-2 bg-opacity-80 font-serif flex justify-start w-fit rounded-full left-0 top-0 ">
                   {ayah.number.inSurah}
                 </span>
               </h2>
@@ -55,6 +55,7 @@ export default function DetailSurahList({ detailSurah }: DetailSurahProps) {
                 }}
                 className="w-full h-4 my-2 opacity-70 rounded-lg border-none"
                 controls
+                preload="none" // Prevents audio from preloading
                 onEnded={() => handleAudioEnd(index)} // Auto-scroll to the next Ayah when current one ends
               >
                 <source src={ayah.audio.alafasy} type="audio/mpeg" />
