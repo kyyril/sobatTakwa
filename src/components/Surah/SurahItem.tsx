@@ -45,9 +45,11 @@ export default function SurahItem({
   return (
     <Card className="m-1 transition transform hover:bg-secondary active:bg-primary-foreground hover:scale-95 hover:secondary duration-200 ease-in-out">
       <div className="flex text-sm justify-between ">
-        <span className="flex items-start left-0 top-0 w-auto  justify-start bg-yellow-400 px-2 rounded-t-md rounded-r-md">
-          {number}
-        </span>
+        <div className="flex items-start left-0 top-0 w-auto  justify-start ">
+          <span className="bg-yellow-400 rounded-t-md rounded-r-md p-1">
+            {number}
+          </span>
+        </div>
         <span className="flex justify-end mx-3">
           <AlertDialog>
             <AlertDialogTrigger className="mt-2 rounded-full hover:scale-125 transition transform duration-200 ease-in-out hover:bg-yellow-400">
