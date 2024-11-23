@@ -21,7 +21,7 @@ export default function DetailSurahList({ detailSurah }: DetailSurahProps) {
   };
 
   return (
-    <div className="w-full flex flex-col gap-2 mt-4">
+    <div className="w-full mx-auto max-w-3xl flex justify-center items-center flex-col mt-6">
       <div className="flex flex-col justify-center m-2 mx-6">
         <div className="flex flex-col items-center mb-4">
           <h1 className="text-3xl text-yellow-400 font-serif font-extrabold">
