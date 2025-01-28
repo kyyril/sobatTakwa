@@ -1,9 +1,10 @@
 "use client";
 import { useEffect, useState } from "react";
-import Loading from "../components/Loading";
+
 import { UrlJadwalSholat } from "@/lib/utils/fetcher";
 import { OptionCities } from "@/lib/optionCities";
 import Select from "react-select"; // Import react-select
+import LoadingIslami from "@/components/Loading";
 
 const Home = () => {
   const [term, setTerm] = useState("Padang");
@@ -26,7 +27,7 @@ const Home = () => {
       });
   }, [term]);
 
-  if (loading) return <Loading />;
+  if (loading) return <LoadingIslami />;
 
   // Format option yang diterima oleh react-select
   const cityOptions = OptionCities.map((city) => ({
