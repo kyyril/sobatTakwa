@@ -11,7 +11,7 @@ export default function SurahList({ dataSurah }: SurahListProps) {
   const [query, setQuery] = useState("");
 
   return (
-    <div className="w-full flex flex-col gap-4 mt-4">
+    <div className="w-full flex flex-col gap-4 mt-4 mx-auto">
       <div className="flex justify-center px-4">
         <Input
           onChange={(e) => setQuery(e.target.value.toLowerCase())}
