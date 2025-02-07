@@ -3,9 +3,7 @@ import { UrlSurah } from "@/lib/utils/fetcher";
 
 async function fetchDetail(slug: string): Promise<Surah | null> {
   try {
-    const response = await fetch(`${UrlSurah}/${slug}`, {
-      cache: "no-store",
-    });
+    const response = await fetch(`${UrlSurah}/${slug}`);
     if (!response.ok) {
       throw new Error(`Failed to fetch detail: ${response.statusText}`);
     }

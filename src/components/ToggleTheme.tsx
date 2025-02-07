@@ -22,23 +22,21 @@ export function ModeToggle() {
 
   return (
     <Button
-      className="rounded-full hover:bg-transparent"
-      variant={"ghost"}
-      size="icon"
+      className="rounded-xl hover:bg-transparent"
+      variant={"secondary"}
+      size="default"
       onClick={toggleTheme}
     >
       <SunIcon
         className={`h-[1.2rem] w-[1.2rem] transition-all duration-1000 ${
-          resolvedTheme === "dark"
-            ? "rotate-0 scale-0 "
-            : "rotate-0 scale-100 animate-bounce"
+          resolvedTheme === "dark" ? "rotate-0 scale-0 " : "rotate-0 scale-100 "
         }`}
       />
       <MoonIcon
         className={`absolute h-[1.2rem] w-[1.2rem] transition-all duration-1000 ${
           resolvedTheme === "light"
             ? "rotate-90 scale-0"
-            : "rotate-0 scale-100 animate-bounce"
+            : "rotate-0 scale-100 "
         }`}
       />
     </Button>
